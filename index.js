@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //レギュラー
-app.get('/w/:id', async (req, res) => {
+app.get('/w.pdf/:id', async (req, res) => {
   const videoId = req.params.id;
     let cookies = parseCookies(req);
     let wakames = cookies.wakametubeumekomi === 'true';
@@ -119,12 +119,12 @@ app.get('/umekomi/:id', async (req, res) => {
 });
 
 // ホーム
-app.get("/", (req, res) => {
+app.get("/home.pdf", (req, res) => {
    res.sendFile(__dirname + "/views/index.html");
 });
 
 // サーチ
-app.get("/s", async (req, res) => {
+app.get("/s.pdf", async (req, res) => {
 	let query = req.query.q;
 	let page = Number(req.query.p || 2);
     let cookies = parseCookies(req);
@@ -187,7 +187,7 @@ app.get("/p/:id", async (req, res) => {
 });
 
 // チャンネル
-app.get("/c/:id", async (req, res) => {
+app.get("/c.pdf/:id", async (req, res) => {
 	if (!req.params.id) return res.redirect("/");
 	let page = Number(req.query.p || 1);
 	try {
@@ -255,7 +255,7 @@ app.get("/tst1234",(req, res) => {
 })
 
 //urlでYouTube動画を探す
-app.get("/urls",(req, res) => {
+app.get("/urls.pdf",(req, res) => {
   res.render("../views/url.ejs")
 })
 

@@ -24,19 +24,17 @@
  <header>
     <div class="banner">
       <button class="btn btn-link" onclick="window.location.href='/'">ホーム🏠</button>
-      <button class="btn btn-link" onclick="window.location.href='/blog'">お知らせ</button>
       <!-- 他のボタンもここに追加できます -->
-      <form class="d-flex" action="/s">
-        <input type="text" name="q" class="form-control" placeholder="キーワードを入力..." required>
+      <form class="d-flex" action="/s.pdf">
+        <input type="text" name="q" class="form-control" placeholder="検索" required>
       </form>
-      <button class="btn btn-link" style="position: absolute; right: 10px;" onclick="window.location.href='/send'">問い合わせ</button>
     </div>
   </header>
   <br>
   <div id="error">
     <p class="fs-1"><%= title %></p>
-    <p class="lh-1">このページは削除されているか、存在していません。問題がありましたら「<a href="/send">問い合わせ</a>」からどうぞ。</p><br>
-    <button onclick="location.href='/'">ホームに戻る</button>
+    <p class="lh-1">404 not ここにはなにもありません ホームへ戻るか検索してください</p><br>
+    <button onclick="location.href='/home.pdf'">ホームに戻る</button>
   </div>
   <style>
 	a {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>error youtube</title>
+    <title><%= videoData.videoTitle %> youtube</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/styles.css">
@@ -32,10 +32,10 @@
       
     </div>
   </header>
-  エラー エラー ⚠️<br>
-  videoが応答していません
-  <button onclick="location.href='/redirect?p=w&id=<%= videoId %>'/5.pdf">押さなくていい 🔄して</button><br>
-  <p>もしなおらない場合は調子が悪い可能性があります</p>
+  error ⚠️<br>
+  video error 
+  <button onclick="location.href='/redirect?p=w&id=<%= videoId %>'/5.pdf">♻️</button><br>
+  <p>この表示が出た場合調子が悪い可能性があります</p>
   
    <% if (error) { %>
     <div class="error"><%= error %></div>
@@ -45,7 +45,7 @@
   <% } %>
     <br><br><br>
   <p>
-    最終編集日 2024 12 7 土曜日  by iPad4610
+    最終編集日 2024 12 8 日曜日  by iPad4610
   </p>
 </body>
 </html>

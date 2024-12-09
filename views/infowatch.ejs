@@ -56,7 +56,7 @@
 </div>
 <div class="card">
   <div class="toolcard-header">
-    <small class="text-muted">イエーイいい？？？？</small>
+    <small class="text-muted"><%= videoData.videoTitle %></small>
     <small class="text-muted float-right"><button class="favorite-btn" onclick="toggleFavorite('<%= videoData.videoId %>', '<%= videoData.channelId %>', '<%= videoData.channelName %>','<%= videoData.videoTitle %>')">お気に入り</button></small>
   </div>
   <div class="card-channel">
@@ -100,7 +100,7 @@
 }
 
 .card-header, .card-footer {
-  background-color: #f8f9fa;
+  background-color: #217DD9;
   padding: 10px 15px;
   border-bottom: 1px solid #ddd;
 }
@@ -199,7 +199,7 @@ video {
       border: none;
     }
     .tube-box {
-      background-color: #ffffff;
+      background-color: ##56C919;
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);

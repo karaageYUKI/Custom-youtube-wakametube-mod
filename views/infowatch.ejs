@@ -30,7 +30,7 @@
    <a href="https://www.youtube.com/watch?v=/<%= video.id %>">Youtubeで視聴</a></br>
       <form class="d-flex" action="/s.pdf" method="get">
           <input id="searchbox" name="q" class="form-control" type="text" placeholder="検索..." aria-label="Search" required>
-   <button class="btn btn-link" onclick="window.location.href='https://www.youtube.com/watch?v=${videoId}`;'>Youtubeで視聴</button>
+   <button class="btn btn-link" onclick="window.location.href='https://www.youtube.com/watch?v=<%= video.id %>">Youtubeで視聴</button>
       </form>
  </div>
 </header>

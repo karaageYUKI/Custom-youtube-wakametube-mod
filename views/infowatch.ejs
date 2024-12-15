@@ -95,9 +95,6 @@
   playsinline
   poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
   data-setup='{}'
-  <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
-    <source src="<%= videoData.stream_url %>" type="video/mp4">
-    読み込み失敗。ブラウザをアップデートしてどうぞ。
   </video>
 </div>
 <div class="card">

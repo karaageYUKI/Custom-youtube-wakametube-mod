@@ -43,7 +43,7 @@
           <a href="/w/<%= video.id %>/5.pdf">
             <img loading="lazy" src="https://i3.ytimg.com/vi/<%= video.id %>/sddefault.jpg" alt="<%= video.title %>">
           </a>
-          <p class="channel-name"><a href="/c/<%= video.author.channelID %>"><%= video.author.name %></a></p>
+          <p class="channel-name"><a href="/c.pdf/<%= video.author.channelID %>"><%= video.author.name %></a></p>
           <p class="video-title"><%= video.title %></p>
           <p class="video-description"><%= video.description %></p>
           <p class="video-meta"><%= video.uploadedAt %> - <%= video.duration %></p>
@@ -58,7 +58,7 @@
         </div>
       <% } else if (video.type === 'channel') { %>
         <div class="result-item">
-          <a href="/c/<%= video.channelID %>">
+          <a href="/c.pdf/<%= video.channelID %>">
             <img src="<%= video.bestAvatar.url.slice(21) %>" alt="<%= video.name %>">
           </a>
           <p class="video-title"><%= video.name %></p>

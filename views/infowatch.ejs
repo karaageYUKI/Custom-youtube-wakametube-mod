@@ -52,7 +52,108 @@
         <img src="https://cdn.glitch.global/3128bf45-3a23-4695-81ba-3aba21b8585b/IMG_1966.gif?v=1729824394361" alt="Loading..." />
     </div>
   <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jpg">
-    <source src="<%= videoData.stream_url %>" type="video/mp4">
+    <!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+    
+    
+    <style>
+        #myIframe {
+  position: fixed;
+  right: 10px;  /* 右端から10ピクセルの余白 */
+  bottom: 10px; /* 下端から10ピクセルの余白 */
+  width: 400px; /* 幅を200ピクセルに設定 */
+  height: 300px;/* 高さを150ピクセルに設定 */
+  border: none; /* ボーダーなし */
+  z-index: 1000; /* 他の要素より前面に表示 */
+}
+</style>
+</head>
+
+
+</script>
+<body class="no-theme">
+    <script src="https://accaii.com/sumikaze/script.js" async></script><noscript><img src="//accaii.com/sumikaze/script?guid=on"></noscript>
+    <span style="display:none" id="dark_mode_pref"></span>
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-2-24"></div>
+        <div class="pure-u-1 pure-u-md-20-24" id="contents">
+            <div class="pure-g navbar h-box">
+                <div class="pure-u-1 pure-u-md-12-24 searchbar">
+<form class="pure-form" action="/search" method="get">
+    <div class="fixed-form">
+                        <fieldset>
+                         
+    </script>
+            <div id="hide">
+                <video
+  id="player"
+  class="video-js vjs-default-skin on-video_player player-style-invidious"
+  controls
+  preload="auto"
+  style="outline:none;width:100%;background-color:#000;"
+  playsinline
+  poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
+  data-setup='{}'
+>
+  {% for videourl in videourls %}
+  <source src="<%= videoData.stream_url %>" type="video/mp4">
+  {% endfor %}
+</video>
+            </div>
+                <div id="show" style="display: none;">
+                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif
+                    %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
+                    loadedmetadata="settime()" loop="">
+                    {% for videourl in videourls%}
+                    <source src="{{videourl}}">
+                    {% endfor %}
+                </video>
+               
+                        <div class="thumbnail">
+                            <img loading="lazy" class="thumbnail" src="{% if proxy == "True" %}/thumbnail?v={{ re['id']}}{% else %}https://ipad4610desuyo.jake.eu/vi/{{ re['id'] }}/0.jpg{% endif %}">
+                        </div>
+                       
+    
+<script>
+  // Video.jsの初期化
+  var player = videojs('player');
+
+  // 10秒巻き戻しボタンの作成
+  var rewindButton = document.createElement('button');
+  rewindButton.className = 'vjs-custom-button';
+  rewindButton.innerHTML = '⏪ 10秒';
+
+  rewindButton.onclick = function() {
+    var currentTime = player.currentTime();
+    player.currentTime(Math.max(0, currentTime - 10));
+  };
+
+  // 10秒飛ばすボタンの作成
+  var forwardButton = document.createElement('button');
+  forwardButton.className = 'vjs-custom-button';
+  forwardButton.innerHTML = '10秒 ⏩';
+
+  forwardButton.onclick = function() {
+    var currentTime = player.currentTime();
+    player.currentTime(Math.min(player.duration(), currentTime + 10));
+  };
+
+  // コントロールバーにボタンを追加
+  player.ready(function() {
+    var controlBar = player.controlBar.el();
+    controlBar.appendChild(rewindButton);
+    controlBar.appendChild(forwardButton);
+  });
+</script>
+</html>
     読み込み失敗。ブラウザをアップデートしてどうぞ。
   </video>
 </div>

@@ -43,7 +43,7 @@ app.get('/w/:id/5.pdf', async (req, res) => {
         const videoData = response.data;
         console.log(videoData);
 
-        res.render('video.html', { videoData });
+        res.render('video', { videoData });
   } catch (error) {
         res.status(500).render('matte', { 
       videoId, 

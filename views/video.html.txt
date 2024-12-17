@@ -4,12 +4,6 @@
 <head>
     <title>読み込み中</title>
     
-    <link rel="stylesheet" href="/css/background-image.css">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/ionicons.min.css">
-    <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -32,14 +26,6 @@
 
 
 
-
-<script>
-window.onload = () => {
-  const adspace = document.querySelector('#adspace');
-  if( adspace.clientHeight === 0 ){
-    alert('アクセスカウンター、または同時接続数が表示されていません。ad blockerをインストールしている場合表示されない場合があります。');
-  }
-}
 </script>
 <body class="no-theme">
     <script src="https://accaii.com/sumikaze/script.js" async></script><noscript><img src="//accaii.com/sumikaze/script?guid=on"></noscript>
@@ -51,13 +37,7 @@ window.onload = () => {
                 <div class="pure-u-1 pure-u-md-12-24 searchbar">
 <form class="pure-form" action="/search" method="get">
     <div class="fixed-form">
-                        <fieldset>
-                            <input type="search" id="searchbox" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" name="q" placeholder="検索" title="検索" value="{{ word }}">
-                        </fieldset>
-                    </form>
-                        
-</div>
-<br><br><h3 class="yukiyoutube">ipad4610</h3>
+
            
             <div id="player-container" class="h-box">
                 <script>
@@ -82,36 +62,32 @@ window.onload = () => {
   preload="auto"
   style="outline:none;width:100%;background-color:#000;"
   playsinline
-  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
+  poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
   data-setup='{}'
 >
   {% for videourl in videourls %}
-  <source src="{{ videourl }}" type="video/mp4">
+  <source src="<%= videoData.stream_url %>" type="video/mp4">
   {% endfor %}
 </video>
             </div>
                 <div id="show" style="display: none;">
-                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
+                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif
                     %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
                     loadedmetadata="settime()" loop="">
                     {% for videourl in videourls%}
-                    <source src="{{videourl}}">
+                    <source src="<%= videoData.stream_url %>">
                     {% endfor %}
                 </video>
                 </video></div>
             </div><button onclick="toggleContent()">Video.js/Normal</button>
             <div class="h-box">
-                <h1>{{ videotitle }}</h1>
+                <h1><%= videoData.videoTitle %></h1>
             </div>
             <div class="pure-g">
                 <div class="pure-u-1 pure-u-lg-1-5">
                     <a href="{{ videourls[0] }}" target="_blank">ダウンロード</a><br>
                     <a
-                        href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.protocol+'//'+document.domain+'/watch?v={{ videoid }}'+'&t='+Math.floor(document.getElementById('player').currentTime),})}">現時点の動画を共有</a><br>
-                    <a
-                        href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.href,})}">動画を共有</a><br>
-                    <hr>
-                </div>
+                        
                 <div class="pure-u-1 pure-u-lg-3-5">
                     <div class="h-box">
                         <a href="/channel/{{authorid}}" style="display:block;width:fit-content;width:-moz-fit-content">
@@ -124,24 +100,7 @@ window.onload = () => {
                         </a>
                         <div id="description-box">
                             <div id="descriptionWrapper">{{ description | safe}}</div>
-                        </div>
-                        <hr>
-                        <div id="comments">
-                        </div>
-                    </div>
-                </div>
-                <div class="pure-u-1 pure-u-lg-1-5">
-                    <!--自動再生<input type="checkbox" id="autonext" onchange="checkautoplay()"><br>-->
-                    ループ再生<input type="checkbox" id="loop" onchange="changeloop()">
-                    {% for re in res %}
-                    <a href="/watch?v={{ re['id'] }}">
-
-                        <div class="thumbnail">
-                            <img loading="lazy" class="thumbnail" src="{% if proxy == "True" %}/thumbnail?v={{ re['id']}}{% else %}https://img.youtube.com/vi/{{ re['id'] }}/0.jpg{% endif %}">
-                        </div>
-                        <p style="width:100%">{{re["title"]}}</p>
-                    </a><br>
-                    <a href="/channel/{{re['authorId']}}">{{re["author"]}}</a>{% endfor %}
+                        </div> 
                 </div>
             </div>
         </div>
@@ -199,31 +158,9 @@ window.onload = () => {
         });</script>
         <iframe id="myIframe" src="about:blank"></iframe>
 
-<script>
-// キーボードイベントのリスナーを追加
-document.addEventListener('keydown', function(event) {
-  // 'b' キーが押された場合
-  if (event.key === 'b' || event.key === 'B') {
-    var iframe = document.getElementById('myIframe');
-    // iframeの表示/非表示を切り替え
-    if (iframe.style.display === 'none') {
-      // 非表示から表示へ切り替え、かつURLを現在のドメインの/bbsに更新
-      iframe.style.display = 'block';
-      iframe.src = window.location.href.split('/')[0] + '//' + window.location.host + '/bbs';
-    } else {
-      // 表示から非表示へ切り替え
-      iframe.style.display = 'none';
-    }
-  }
-});
-</script>
 
-<div id="adspace">
-<!-- FC2カウンター ここから --><script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89505886" /></noscript><!-- FC2カウンター ここまで --><!-- FC2カウンター ここから -->
-同時接続数:<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89505886" /></noscript>  <a href="/instance" >インスタンス一覧</a><a href="/build" >インスタンス作成方法</a><a href="https://scratch.mit.edu/" >　スクラッチでインスタンスの拡散してくれる人募集中,勝手に拡散してOK</a></div>
-<p>このyuki youtubeの”逆アクセスランキング”</p>
-<div style="height:480px;"><script src="//accaii.com/sumikaze/widget.js" async></script></div>
-<script>
+
+
   // Video.jsの初期化
   var player = videojs('player');
 

@@ -24,7 +24,16 @@
 </style>
 </head>
 
-
+<header>
+  <div class="banner">
+ <li><a href="<%= videoData.stream_url %>" target="_blank">動画をダウンロード</a></li>
+ <li><a href="https://tesutobottann12.onrender.com/watch?v=<%= videoData.videoId %>" target="_blank">yukiyoutubeで見る</a></li>
+   <button class="btn btn-link" onclick="window.location.href='/home.pdf'">ホーム🏠</button>
+      <form class="d-flex" action="/s.pdf" method="get">
+          <input id="searchbox" name="q" class="form-control" type="text" placeholder="検索..." aria-label="Search" required>
+   
+      </form>
+ </div>
 
 </script>
 <body class="no-theme">
@@ -65,6 +74,7 @@
   poster="{% if proxy == 'True' %}/thumbnail?v=<%= videoData.videoId %>{% else %}https://ipad4610desuyo.jake.eu/vi/<%= videoData.videoId %>/0.jpg{% endif %}"
   data-setup='{}'
 >
+  <video id="wakameVideo" controls autoplay poster="/vi/<%= videoData.videoId %>/maxresdefault.jp
   {% for videourl in videourls %}
   <source src="<%= videoData.stream_url %>" type="video/mp4">
   {% endfor %}

@@ -168,34 +168,6 @@
         });</script>
         <iframe id="myIframe" src="about:blank"></iframe>
 
-  // Video.jsの初期化
-  var player = videojs('player');
-
-  // 10秒巻き戻しボタンの作成
-  var rewindButton = document.createElement('button');
-  rewindButton.className = 'vjs-custom-button';
-  rewindButton.innerHTML = '⏪ 10秒';
-
-  rewindButton.onclick = function() {
-    var currentTime = player.currentTime();
-    player.currentTime(Math.max(0, currentTime - 10));
-  };
-
-  // 10秒飛ばすボタンの作成
-  var forwardButton = document.createElement('button');
-  forwardButton.className = 'vjs-custom-button';
-  forwardButton.innerHTML = '10秒 ⏩';
-
-  forwardButton.onclick = function() {
-    var currentTime = player.currentTime();
-    player.currentTime(Math.min(player.duration(), currentTime + 10));
-  };
-
-  // コントロールバーにボタンを追加
-  player.ready(function() {
-    var controlBar = player.controlBar.el();
-    controlBar.appendChild(rewindButton);
-    controlBar.appendChild(forwardButton);
-  });
+ 
 </script>
 </html>

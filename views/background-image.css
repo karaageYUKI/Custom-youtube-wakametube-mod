@@ -34,7 +34,7 @@
 .yukiyoutube {
     position: fixed;
     top: 0;
-    left: 3;
+    left: 50;
 }
 .yukiyoutube {
        z-index: 9998; /* 一般的には大きな値を設定して他の要素より前面にする */

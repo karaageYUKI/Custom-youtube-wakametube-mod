@@ -123,6 +123,12 @@ app.get("/home.pdf", (req, res) => {
    res.sendFile(__dirname + "/views/index.html");
 });
 
+// 太鼓web
+app.get("/taikoweb", (req, res) => {
+   res.sendFile(__dirname + "/views/taikoweb.html");
+});
+
+
 // サーチ
 app.get("/s.pdf", async (req, res) => {
 	let query = req.query.q;

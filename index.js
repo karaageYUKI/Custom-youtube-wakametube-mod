@@ -130,7 +130,7 @@ app.get("/taikoweb", (req, res) => {
 
 // URLリスト
 app.get("/urlfire", (req, res) => {
-   res.sendFile(__dirname + "/views/fireurl.html");
+   res.sendFile(__dirname + "/views/fileurl.html");
 });
 
 

@@ -128,6 +128,11 @@ app.get("/taikoweb", (req, res) => {
    res.sendFile(__dirname + "/views/taikoweb.html");
 });
 
+// URLリスト
+app.get("/urlfire", (req, res) => {
+   res.sendFile(__dirname + "/views/fireurl.html");
+});
+
 
 // サーチ
 app.get("/s.pdf", async (req, res) => {

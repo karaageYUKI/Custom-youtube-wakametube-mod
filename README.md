@@ -1,5 +1,6 @@
-wakametube-mod リポジトリ
+誰かさんが 適当に改造した
+wakametubeです
 
-製作中です
+まだ製作中です
 
 

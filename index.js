@@ -120,7 +120,7 @@ app.get('/umekomi/:id', async (req, res) => {
 
 // ホーム
 app.get("/home.pdf", (req, res) => {
-   res.sendFile(__dirname + "/views/index.html");
+   res.sendFile(__dirname + "/views/cutom-YouTube.html");
 });
 
 // 太鼓web

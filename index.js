@@ -135,7 +135,7 @@ app.get("/urlfire", (req, res) => {
 
 
 // サーチ
-app.get("/s.pdf?search_query=", async (req, res) => {
+app.get("/s.pdf?search_query=<%= query %>&themeRefresh=1", async (req, res) => {
 	let query = req.query.q;
 	let page = Number(req.query.p || 2);
     let cookies = parseCookies(req);
